@@ -42,4 +42,4 @@ munin:
     - mode: 777
     - template: jinja
     - defaults:
-      ip_node: "test"
+      ip_node: "10.0.0.9"
