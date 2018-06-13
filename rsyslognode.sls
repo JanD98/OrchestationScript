@@ -8,5 +8,6 @@ rsyslog:
     - user: root
     - group: root
     - mode: 777
+    - template: jinja
     - defaults:
-      master_ip: "10.0.0.8"   
+      master_ip: "@10.0.0.8"   
