@@ -15,28 +15,28 @@ munin:
 
 /etc/munin/apache.conf:
   file.managed:
-    - source: salt://OrchestrationScript/apache.conf
+    - source: salt://apache.conf
     - user: root
     - group: root
     - mode: 777 
 
 /etc/apache2/conf-available/munin.conf:
   file.managed:
-    - source: salt:/OrchestrationScript/munin.conf
+    - source: salt://munin.conf
     - user: root
     - group: root
     - mode: 777 
 
 /etc/apache2/conf-enabled/munin.conf:
   file.managed:
-    - source: salt://OrchestrationScript/munin.conf
+    - source: salt://munin.conf
     - user: root
     - group: root
     - mode: 777 
 
 /etc/munin/munin.conf:
   file.managed:
-    - source: salt://OrchestrationScript/muninmaster.conf
+    - source: salt://muninmaster.conf
     - user: root
     - group: root
     - mode: 777
