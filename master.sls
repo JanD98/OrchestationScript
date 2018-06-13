@@ -11,7 +11,7 @@ munin:
     - user: munin
     - name: /var/www/munin
     - group: munin
-    - mode 777 
+    - mode: 777 
 
 /etc/munin/apache.conf:
   file.managed:
