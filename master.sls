@@ -1,6 +1,8 @@
 apache2:
   pkg:
-    - installed munin:
+    - installed 
+
+munin:
   pkg:
     - installed 
 
@@ -18,14 +20,14 @@ apache2:
     - group: root
     - mode: 777 
 
-/etc/apache2/conf-available/munin.conf
+/etc/apache2/conf-available/munin.conf:
   file.managed:
     - source: salt:/OrchestrationScript/munin.conf
     - user: root
     - group: root
     - mode: 777 
 
-/etc/apache2/conf-enabled/munin.conf
+/etc/apache2/conf-enabled/munin.conf:
   file.managed:
     - source: salt://OrchestrationScript/munin.conf
     - user: root
