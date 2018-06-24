@@ -15,7 +15,7 @@ munin:
 rsyslog:
   pkg:
     - installed
- 
+
 /etc/rsyslog.conf:
   file.managed:
     - source: salt://rsyslog/rsyslognode.conf
@@ -25,3 +25,4 @@ rsyslog:
     - template: jinja
     - defaults:
       master_ip: "@10.0.0.8"   
+
