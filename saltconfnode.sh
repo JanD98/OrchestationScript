@@ -3,8 +3,8 @@
 curl -L https://bootstrap.saltstack.com -o install_salt.sh
 sh install_salt.sh -M
 
-sed -i '/master: salt/s/^#//' /etc/salt/minion
-sed -i 's/\(master\:\s*\).*$/\1$1/' /etc/salt/minion
+sed -i '/#master: salt/s/^#//' /etc/salt/minion
+sed -i "s/\(master\:\s*\).*$/\1$@/" /etc/salt/minion
 
 curl -fsSL https://get.docker.com/ | sh
 mkdir ~/wordpress && cd ~/wordpress
