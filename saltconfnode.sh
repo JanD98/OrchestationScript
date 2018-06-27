@@ -3,15 +3,12 @@
 curl -L https://bootstrap.saltstack.com -o install_salt.sh
 sh install_salt.sh -M
 
-sed -i '/master: salt/s/^#//' etc/salt/minion
+sed -i '/master: salt/s/^#//' /etc/salt/minion
 sed -i 's/\(master\:\s*\).*$/\1$1/' /etc/salt/minion
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-apt-get update
-apt-cache policy docker-ce
-apt-get install -y docker-ce
+curl -fsSL https://get.docker.com/ | sh
+mkdir ~/wordpress && cd ~/wordpress
+docker run -e MYSQL_ROOT_PASSWORD=test -e MYSQL_DATABASE=wordpress --name wordpressdb -v "$PWD/database":/var/lib/mysql -d mariadb:latest
 
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-docker-compose -f wordpress.yml up
+docker pull wordpress
+docker run -e WORDPRESS_DB_PASSWORD=test --name wordpress --link wordpressdb:mysql -p 127.0.0.1:80:80 -v "$PWD/html":/var/www/html -d wordpress
