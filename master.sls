@@ -68,7 +68,7 @@ oracle-license-select:
   debconf.set:
     - name: oracle-java8-installer
     - data:
-        'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': 'tr$
+        'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': True }
 
 oracle-java8-installer:
   pkg:
