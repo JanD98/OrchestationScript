@@ -42,7 +42,7 @@ munin:
     - mode: 777
     - template: jinja
     - defaults:
-      ip_node: "10.0.0.9"
+      node_ip: "10.0.0.17"
 
 rsyslog:
   pkg:
@@ -54,25 +54,3 @@ rsyslog:
     - user: root
     - group: root
     - mode: 777
-
-oracle-ppa:
-  pkgrepo.managed:
-    - humanname: WebUpd8 Oracle Java PPA repository
-    - name: deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
-    - dist: trusty
-    - file: /etc/apt/sources.list.d/webupd8team-java.list
-    - keyid: EEA14886
-    - keyserver: keyserver.ubuntu.com
-
-oracle-license-select:
-  debconf.set:
-    - name: oracle-java8-installer
-    - data:
-        'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': True }
-
-oracle-java8-installer:
-  pkg:
-    - installed
-    - require:
-	- pkgrepo: oracle-ppa
-
