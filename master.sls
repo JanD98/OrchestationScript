@@ -42,7 +42,7 @@ munin:
     - mode: 777
     - template: jinja
     - defaults:
-      ip_node: "10.0.0.9"
+      node_ip: "10.0.0.9"
 
 rsyslog:
   pkg:
