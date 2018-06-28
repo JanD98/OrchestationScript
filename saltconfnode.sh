@@ -11,4 +11,4 @@ mkdir ~/wordpress && cd ~/wordpress
 docker run -e MYSQL_ROOT_PASSWORD=test -e MYSQL_DATABASE=wordpress --name wordpressdb -v "$PWD/database":/var/lib/mysql -d mariadb:latest
 
 docker pull wordpress
-docker run -e WORDPRESS_DB_PASSWORD=test --name wordpress --link wordpressdb:mysql -p 127.0.0.1:80:80 -v "$PWD/html":/var/www/html -d wordpress
+docker run -e WORDPRESS_DB_PASSWORD=test --name wordpress --link wordpressdb:mysql -p 10.0.0.13:80:80 -v "$PWD/html":/var/www/html -d wordpress
